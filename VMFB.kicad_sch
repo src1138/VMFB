@@ -1924,6 +1924,9 @@
   (junction (at 127 63.5) (diameter 0) (color 0 0 0 0)
     (uuid 2cc9c59e-2a7d-4e4a-ba52-1e83347adc95)
   )
+  (junction (at 33.02 149.86) (diameter 0) (color 0 0 0 1)
+    (uuid 2d82f75b-d826-4208-bcf1-740ea00579b2)
+  )
   (junction (at 175.26 40.64) (diameter 1) (color 194 0 0 1)
     (uuid 2f7d9a13-08bd-4d13-bf2a-99c89bc978db)
   )
@@ -2139,7 +2142,6 @@
   )
 
   (no_connect (at 87.63 111.76) (uuid 276aa11f-cb91-4cec-bcaa-f3cc19486861))
-  (no_connect (at 36.83 147.32) (uuid 53b730ac-8de3-4eaf-9344-23f057a5784e))
   (no_connect (at 40.64 95.25) (uuid 5771e6d3-19fe-4ea5-8eab-275c603f2e27))
   (no_connect (at 72.39 93.98) (uuid b7cc02e1-b504-4fee-8a72-09db5dcb2b2c))
   (no_connect (at 76.2 54.61) (uuid cf31c1c5-ac48-4822-824d-aaa1b191d66e))
@@ -2559,6 +2561,10 @@
   (wire (pts (xy 243.84 59.69) (xy 243.84 64.77))
     (stroke (width 0) (type default) (color 0 0 0 1))
     (uuid 50e73b3b-2427-45ba-8a3d-4d1c3081c099)
+  )
+  (wire (pts (xy 33.02 147.32) (xy 36.83 147.32))
+    (stroke (width 0) (type default) (color 0 0 0 1))
+    (uuid 520823cb-4c62-4565-818f-94ed074215e7)
   )
   (wire (pts (xy 201.93 114.3) (xy 204.47 114.3))
     (stroke (width 0) (type default) (color 0 0 0 1))
@@ -3256,6 +3262,10 @@
     (stroke (width 0) (type default) (color 0 255 0 1))
     (uuid dd2a73e8-bc7b-47c2-bca2-27889a14eed9)
   )
+  (wire (pts (xy 33.02 149.86) (xy 33.02 147.32))
+    (stroke (width 0) (type default) (color 0 0 0 1))
+    (uuid dd4c5eff-b609-4654-b32a-4003508d7a98)
+  )
   (wire (pts (xy 187.96 71.12) (xy 187.96 74.93))
     (stroke (width 0) (type default) (color 0 0 0 1))
     (uuid de8a311a-2603-4899-a04b-6029118d8da4)
@@ -3848,7 +3858,7 @@
   (symbol (lib_id "Device:R") (at 270.51 21.59 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 017da241-c44a-4710-966a-fd8017bb085c)
-    (property "Reference" "R33" (at 267.97 22.225 0)
+    (property "Reference" "R32" (at 267.97 22.225 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1K" (at 267.97 19.685 0)
@@ -3865,7 +3875,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R33") (unit 1)
+          (reference "R32") (unit 1)
         )
       )
     )
@@ -3980,7 +3990,7 @@
   (symbol (lib_id "Device:R") (at 175.26 44.45 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 04748f08-dcee-434b-a356-b28ea247cf4b)
-    (property "Reference" "R23" (at 172.72 43.815 0)
+    (property "Reference" "R22" (at 172.72 43.815 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10K" (at 172.72 46.355 0)
@@ -3997,7 +4007,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R23") (unit 1)
+          (reference "R22") (unit 1)
         )
       )
     )
@@ -4090,7 +4100,7 @@
   (symbol (lib_id "Device:R") (at 274.32 86.36 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0cde336d-e035-4b21-a9b8-e233662ecf3a)
-    (property "Reference" "R21" (at 271.78 85.725 0)
+    (property "Reference" "R20" (at 271.78 85.725 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10K" (at 271.78 88.265 0)
@@ -4107,7 +4117,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R21") (unit 1)
+          (reference "R20") (unit 1)
         )
       )
     )
@@ -4196,7 +4206,7 @@
   (symbol (lib_id "Device:R") (at 259.08 57.15 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1c902bba-5837-4cd4-be22-f9471cbea826)
-    (property "Reference" "R19" (at 261.62 57.785 0)
+    (property "Reference" "R18" (at 261.62 57.785 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10K" (at 261.62 55.245 0)
@@ -4213,7 +4223,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R19") (unit 1)
+          (reference "R18") (unit 1)
         )
       )
     )
@@ -4415,7 +4425,7 @@
   (symbol (lib_id "Device:R") (at 72.39 105.41 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 27ca3ece-b874-4fca-ab5e-78c7c9ec792a)
-    (property "Reference" "R32" (at 74.93 106.045 0)
+    (property "Reference" "R31" (at 74.93 106.045 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "4.7K" (at 74.93 103.505 0)
@@ -4432,7 +4442,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R32") (unit 1)
+          (reference "R31") (unit 1)
         )
       )
     )
@@ -4467,7 +4477,7 @@
   (symbol (lib_id "Device:R") (at 204.47 54.61 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2c8b4e99-dcf1-45ad-ae6d-ed98b7ae1dce)
-    (property "Reference" "R26" (at 204.47 59.69 90)
+    (property "Reference" "R25" (at 204.47 59.69 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100K" (at 204.47 57.15 90)
@@ -4484,7 +4494,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R26") (unit 1)
+          (reference "R25") (unit 1)
         )
       )
     )
@@ -4520,7 +4530,7 @@
   (symbol (lib_id "Device:R") (at 207.01 151.13 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2d41d55c-7f7c-4b92-8a10-cef833430433)
-    (property "Reference" "R34" (at 208.28 149.86 0)
+    (property "Reference" "R33" (at 208.28 149.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100R" (at 208.28 152.4 0)
@@ -4537,7 +4547,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R34") (unit 1)
+          (reference "R33") (unit 1)
         )
       )
     )
@@ -4729,7 +4739,7 @@
   (symbol (lib_id "Device:R") (at 224.79 151.13 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3c77f97c-9a9a-4690-b658-1e6998bb9bef)
-    (property "Reference" "R35" (at 226.06 149.86 0)
+    (property "Reference" "R34" (at 226.06 149.86 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100R" (at 226.06 152.4 0)
@@ -4746,7 +4756,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R35") (unit 1)
+          (reference "R34") (unit 1)
         )
       )
     )
@@ -4807,7 +4817,7 @@
   (symbol (lib_id "Device:R") (at 97.79 114.3 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 407990ee-efc1-4682-9115-931d74297f1a)
-    (property "Reference" "R29" (at 100.33 114.935 0)
+    (property "Reference" "R28" (at 100.33 114.935 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "47R" (at 100.33 112.395 0)
@@ -4824,7 +4834,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R29") (unit 1)
+          (reference "R28") (unit 1)
         )
       )
     )
@@ -5053,7 +5063,7 @@
   (symbol (lib_id "Device:R") (at 207.01 115.57 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5131ca27-a82f-4243-9bf9-0d7a8535e483)
-    (property "Reference" "R36" (at 208.28 115.57 0)
+    (property "Reference" "R35" (at 208.28 115.57 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100R" (at 208.28 118.11 0)
@@ -5070,7 +5080,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R36") (unit 1)
+          (reference "R35") (unit 1)
         )
       )
     )
@@ -5105,7 +5115,7 @@
   (symbol (lib_id "Device:R") (at 274.32 63.5 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 56273b31-20a4-4a22-9723-3f16bd11b462)
-    (property "Reference" "R20" (at 271.78 62.865 0)
+    (property "Reference" "R19" (at 271.78 62.865 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10K" (at 271.78 65.405 0)
@@ -5122,7 +5132,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R20") (unit 1)
+          (reference "R19") (unit 1)
         )
       )
     )
@@ -5131,7 +5141,7 @@
   (symbol (lib_id "Device:R") (at 256.54 80.01 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 581f790d-1b86-4897-b7f2-f90c934416c2)
-    (property "Reference" "R22" (at 251.46 80.01 90)
+    (property "Reference" "R21" (at 251.46 80.01 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10K" (at 254 80.01 90)
@@ -5148,7 +5158,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R22") (unit 1)
+          (reference "R21") (unit 1)
         )
       )
     )
@@ -5372,7 +5382,7 @@
   (symbol (lib_id "Device:R") (at 92.71 114.3 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7019039d-581c-44b1-abc5-fd716a400e8a)
-    (property "Reference" "R28" (at 95.25 114.935 0)
+    (property "Reference" "R27" (at 95.25 114.935 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1K" (at 95.25 112.395 0)
@@ -5389,7 +5399,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R28") (unit 1)
+          (reference "R27") (unit 1)
         )
       )
     )
@@ -5456,7 +5466,7 @@
   (symbol (lib_id "Device:R") (at 224.79 115.57 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 74584dc6-8b76-44e9-925e-cc67d65edfe0)
-    (property "Reference" "R37" (at 226.06 115.57 0)
+    (property "Reference" "R36" (at 226.06 115.57 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100R" (at 226.06 118.11 0)
@@ -5473,7 +5483,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R37") (unit 1)
+          (reference "R36") (unit 1)
         )
       )
     )
@@ -5482,7 +5492,7 @@
   (symbol (lib_id "Device:R") (at 278.13 21.59 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7620127c-4897-4a0f-aac7-56e0ca951e97)
-    (property "Reference" "R40" (at 278.13 26.67 90)
+    (property "Reference" "R39" (at 278.13 26.67 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100K" (at 278.13 24.13 90)
@@ -5499,7 +5509,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R40") (unit 1)
+          (reference "R39") (unit 1)
         )
       )
     )
@@ -5508,7 +5518,7 @@
   (symbol (lib_id "Device:R") (at 26.67 92.71 270) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7661e0fd-7c4b-417e-b850-622324d5c7a5)
-    (property "Reference" "R27" (at 26.67 98.1082 90)
+    (property "Reference" "R26" (at 26.67 98.1082 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "10K" (at 26.67 95.5682 90)
@@ -5525,7 +5535,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R27") (unit 1)
+          (reference "R26") (unit 1)
         )
       )
     )
@@ -5895,7 +5905,7 @@
   (symbol (lib_id "Device:R") (at 242.57 115.57 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9b6ca7e3-8bcd-4f6b-a091-ae6ca9099017)
-    (property "Reference" "R38" (at 243.84 115.57 0)
+    (property "Reference" "R37" (at 243.84 115.57 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100R" (at 243.84 118.11 0)
@@ -5912,7 +5922,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R38") (unit 1)
+          (reference "R37") (unit 1)
         )
       )
     )
@@ -6000,7 +6010,7 @@
   (symbol (lib_id "Device:R") (at 30.48 114.3 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9e665eff-b0d3-444e-a8f7-3bd66d35eb19)
-    (property "Reference" "R30" (at 33.02 114.935 0)
+    (property "Reference" "R29" (at 33.02 114.935 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10K" (at 33.02 112.395 0)
@@ -6017,7 +6027,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R30") (unit 1)
+          (reference "R29") (unit 1)
         )
       )
     )
@@ -6052,10 +6062,10 @@
   (symbol (lib_id "Device:R") (at 128.27 44.45 270) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a4b4fea8-d9b0-4748-a0cf-2c135d035058)
-    (property "Reference" "R18" (at 128.27 39.37 90)
+    (property "Reference" "R17" (at 128.27 39.37 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "470K" (at 128.27 41.91 90)
+    (property "Value" "220K" (at 128.27 41.91 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" (at 128.27 46.228 90)
@@ -6069,7 +6079,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R18") (unit 1)
+          (reference "R17") (unit 1)
         )
       )
     )
@@ -6443,7 +6453,7 @@
   (symbol (lib_id "Device:R") (at 260.35 115.57 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c56c201f-a102-44c8-bd09-7ec5f7369368)
-    (property "Reference" "R39" (at 261.62 115.57 0)
+    (property "Reference" "R38" (at 261.62 115.57 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100R" (at 261.62 118.11 0)
@@ -6460,7 +6470,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R39") (unit 1)
+          (reference "R38") (unit 1)
         )
       )
     )
@@ -6469,7 +6479,7 @@
   (symbol (lib_id "Device:R") (at 210.82 50.8 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c82cbbce-0bd3-4a81-824b-a9d338a0dc0f)
-    (property "Reference" "R24" (at 213.36 51.435 0)
+    (property "Reference" "R23" (at 213.36 51.435 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "47R" (at 213.36 48.895 0)
@@ -6486,7 +6496,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R24") (unit 1)
+          (reference "R23") (unit 1)
         )
       )
     )
@@ -6495,7 +6505,7 @@
   (symbol (lib_id "Device:R") (at 80.01 115.57 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d3ae1e05-0fa2-4f83-877b-c59b1e124338)
-    (property "Reference" "R31" (at 80.01 110.49 90)
+    (property "Reference" "R30" (at 80.01 110.49 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "47K" (at 80.01 113.03 90)
@@ -6512,7 +6522,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R31") (unit 1)
+          (reference "R30") (unit 1)
         )
       )
     )
@@ -6678,7 +6688,7 @@
   (symbol (lib_id "Device:R") (at 175.26 64.77 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid dfd6a8f1-cd3f-4395-a960-8cfd4c96bcad)
-    (property "Reference" "R25" (at 172.72 64.135 0)
+    (property "Reference" "R24" (at 172.72 64.135 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10K" (at 172.72 66.675 0)
@@ -6695,7 +6705,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R25") (unit 1)
+          (reference "R24") (unit 1)
         )
       )
     )
