@@ -12,7 +12,9 @@ An inexpensive, simple bird feeder that dispenses a nut for stuff and can be bui
 - small enough to be portable with various mounting options
 - easy customize and improve upon
 
-This PCB is for all the electronics required. The circuit is fairly straightforward:
+This PCB is for all the electronics required. I've been getting them manufactures by PCBWay (https://www.pcbway.com/), and the gerbers for the latest tested version along with the standard BOM are available as a PCBWay shared project here: https://www.pcbway.com/project/shareproject/Vending_Machine_for_Birds_eda585b3.html
+
+The circuit is fairly straightforward:
 
 - PIR sensor - this turns on the IR LEDs for the photodiode sensors when triggered.
 - 555 monostable vibrator to keep the circuit on for ~45 secs after the PIR is triggered. There is a diode leading from pin 6/7 to the trigger. This allows the PIR to reset the timer during a cycle, keeping the thing continuously on while a bird is in front of the PIR.
