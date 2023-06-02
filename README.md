@@ -28,4 +28,5 @@ The circuit is fairly straightforward:
 Some images of the board
 - unpopulated front view: ![20230601_205221](https://github.com/src1138/VMFB/assets/15698079/6499749b-ac65-4815-970c-83bafae27064)
 - populated front view: ![20230601_210510](https://github.com/src1138/VMFB/assets/15698079/1ef6abb6-d61a-4523-a78b-1e9a7d47356b)
-- populated side view: ![20230601_210632](https://github.com/src1138/VMFB/assets/15698079/7211644a-848f-47b4-b253-c5efa1cac32b)
+- populated side view: ![20230601_210543](https://github.com/src1138/VMFB/assets/15698079/ca4874ae-21eb-4f62-8a90-6f1f156be7cf)
+
