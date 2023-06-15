@@ -1,4 +1,4 @@
-# VMFB
+# VMFB (Vending Machine For Birds)
 Simple, inexpensive bird feeder that dispenses peanuts in exchange for dropping stuff in a hole. A vending machine for clever birds.
 
 An inexpensive, simple bird feeder that dispenses a nut for stuff and can be built from analog components and discarded or scrap objects. Rodent proof, runs on 5-6V, one moving part (vibration motor). No 3D printing or laser cutting required, just some basic hand tools. Lots of improvement and customization possibilities. Lots of possibilities for the enclosure.
