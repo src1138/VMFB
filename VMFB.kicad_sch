@@ -6557,9 +6557,9 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x06_Pin") (at 102.87 152.4 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid 955b9d55-b741-45a7-aced-051eee726f32)
-    (property "Reference" "J12" (at 103.505 144.78 0)
+    (property "Reference" "J12" (at 100.33 153.67 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x06_Pin" (at 97.79 153.67 90)
