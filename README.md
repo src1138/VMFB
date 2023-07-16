@@ -33,6 +33,7 @@ The circuit is all analog, using four NE555 timers and one LM358 dual op amp. Th
 # PCB, BOM AND GERBERS
 
 Kicad Files (Github): https://github.com/src1138/VMFB
+
 Gerbers and PCB (PCBWay): https://www.pcbway.com/project/shareproject/Vending_Machine_for_Birds_eda585b3.html
 
 Front
