@@ -46,6 +46,13 @@ The PCB has footprints for USB type A, USB type B, barrel jack and screw termina
 
 The Timer and Powerbank Keep-Alive are not essential and you don't have to populate the parts for them if you don't need/want to use them.
 
+# CRITICAL COMPONENTS
+
+This project uses commodity components, and you can confidently use alternatives with similar specs. There are a few points to keep in mind.
+
+- For the phototransistors, they should have a photocurrent of around 10mA. If they have a lower photocurrent, you should replace the 10K resistors on the non-invertine op amp imputs with a higher value. For  instance, if your phototransistors have a photocurrent of ~1mA, use a 100K resistor intead.
+- I use NE555Ps here - you could use other models, but keep in mind that the transistors controlling the IR LEDs (BD139) and motor (TIP41C) need a bit of current to their base. If for instance you use the CMOS 555 that can only source about 10mA, you may need to replace these transistors with ones that have more gain.
+
 # HOW IT WORKS
 
 ## States
