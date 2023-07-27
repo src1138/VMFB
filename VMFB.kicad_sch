@@ -7711,7 +7711,7 @@
     (property "Reference" "Q8" (at 219.71 154.305 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "BC547" (at 219.71 156.845 0)
+    (property "Value" "BC547B" (at 219.71 156.845 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Package_TO_SOT_THT:TO-92_Inline_Wide" (at 219.71 156.845 0)

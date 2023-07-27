@@ -3689,7 +3689,7 @@
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 4bbe866c-6e89-4927-830f-7d432effdc19)
     )
-    (fp_text value "BC547" (at 2.54 2.79) (layer "F.Fab")
+    (fp_text value "BC547B" (at 2.54 2.79) (layer "F.Fab")
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp d58d381a-c85d-4c6d-9c51-240dd1e7a985)
     )
