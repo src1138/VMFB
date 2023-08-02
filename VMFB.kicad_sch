@@ -1381,67 +1381,6 @@
         )
       )
     )
-    (symbol "Device:R_Potentiometer" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "RV" (at -4.445 0 90)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "R_Potentiometer" (at -2.54 0 90)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "resistor variable" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Potentiometer" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "Potentiometer*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "R_Potentiometer_0_1"
-        (polyline
-          (pts
-            (xy 2.54 0)
-            (xy 1.524 0)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 1.143 0)
-            (xy 2.286 0.508)
-            (xy 2.286 -0.508)
-            (xy 1.143 0)
-          )
-          (stroke (width 0) (type default))
-          (fill (type outline))
-        )
-        (rectangle (start 1.016 2.54) (end -1.016 -2.54)
-          (stroke (width 0.254) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "R_Potentiometer_1_1"
-        (pin passive line (at 0 3.81 270) (length 1.27)
-          (name "1" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 3.81 0 180) (length 1.27)
-          (name "2" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 0 -3.81 90) (length 1.27)
-          (name "3" (effects (font (size 1.27 1.27))))
-          (number "3" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
     (symbol "Device:R_Potentiometer_Trim" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
       (property "Reference" "RV" (at -4.445 0 90)
         (effects (font (size 1.27 1.27)))
@@ -3816,10 +3755,10 @@
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
-  (global_label "GND" (shape input) (at 217.17 160.02 0) (fields_autoplaced)
+  (global_label "IR GND" (shape input) (at 217.17 160.02 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 02d43d26-bdf6-4493-827f-4eb567da8cdc)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 223.9463 160.02 0) (show_name)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 226.8681 160.02 0) (show_name)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -4689,7 +4628,7 @@
   (symbol (lib_id "Device:R") (at 80.01 80.01 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 16a0fe58-cdee-48c7-8561-734318230855)
-    (property "Reference" "R35" (at 78.3549 77.9878 90)
+    (property "Reference" "R32" (at 78.3549 77.9878 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "470R" (at 77.47 80.01 90)
@@ -4706,7 +4645,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R35") (unit 1)
+          (reference "R32") (unit 1)
         )
       )
     )
@@ -4933,7 +4872,7 @@
   (symbol (lib_id "Device:R") (at 67.31 102.87 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 27ca3ece-b874-4fca-ab5e-78c7c9ec792a)
-    (property "Reference" "R12" (at 65.0224 104.7595 90)
+    (property "Reference" "R13" (at 65.0224 104.7595 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "4.7K" (at 67.279 105.0692 90)
@@ -4950,7 +4889,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R12") (unit 1)
+          (reference "R13") (unit 1)
         )
       )
     )
@@ -5355,33 +5294,6 @@
     )
   )
 
-  (symbol (lib_id "Device:R_Potentiometer") (at 208.28 48.26 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 473976cc-b87e-492f-b82c-cf7b8fc20960)
-    (property "Reference" "RV4" (at 206.4151 50.8674 90)
-      (effects (font (size 1.27 1.27)) (justify right))
-    )
-    (property "Value" "100K" (at 205.74 48.26 90)
-      (effects (font (size 1.27 1.27)) (justify right))
-    )
-    (property "Footprint" "Potentiometer_THT:Potentiometer_Piher_PT-10-V10_Vertical" (at 208.28 48.26 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 208.28 48.26 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 52f0119c-e470-4d03-88e5-2dd2c446c109))
-    (pin "2" (uuid 86d01115-aba6-461e-b24d-15ae719264d4))
-    (pin "3" (uuid f465c145-f0c1-4e66-8504-38db1fe3f5dc))
-    (instances
-      (project "VMFB"
-        (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "RV4") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "Connector:Conn_01x02_Pin") (at 203.2 147.32 270) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4756aafd-c9c0-472f-a466-7f04341e0389)
@@ -5491,7 +5403,7 @@
   (symbol (lib_id "Device:R") (at 207.01 115.57 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5131ca27-a82f-4243-9bf9-0d7a8535e483)
-    (property "Reference" "R13" (at 208.28 115.57 0)
+    (property "Reference" "R11" (at 208.28 115.57 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100R" (at 207.01 118.11 90)
@@ -5508,7 +5420,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R13") (unit 1)
+          (reference "R11") (unit 1)
         )
       )
     )
@@ -5749,33 +5661,6 @@
     )
   )
 
-  (symbol (lib_id "Device:R_Potentiometer") (at 208.28 66.04 270) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 63354bae-6570-4e7e-b4b2-01d902052edc)
-    (property "Reference" "RV3" (at 210.1204 63.4115 90)
-      (effects (font (size 1.27 1.27)) (justify right))
-    )
-    (property "Value" "100K" (at 210.82 66.04 90)
-      (effects (font (size 1.27 1.27)) (justify right))
-    )
-    (property "Footprint" "Potentiometer_THT:Potentiometer_Piher_PT-10-V10_Vertical" (at 208.28 66.04 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 208.28 66.04 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 6446bccc-80d0-4727-9b9e-70ac8afd33e4))
-    (pin "2" (uuid 60cb8c11-9afc-40b6-bdef-7ebdf2aa369d))
-    (pin "3" (uuid 3c63b7a8-dd4c-4609-a573-f7f5ee5992d8))
-    (instances
-      (project "VMFB"
-        (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "RV3") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "Amplifier_Operational:LM358") (at 260.35 52.07 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 66339494-6124-43a1-92b9-5532942fa7d8)
@@ -5811,7 +5696,7 @@
   (symbol (lib_id "Device:R") (at 39.37 60.96 270) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6aa13db4-d2a3-4c02-b2bb-b45749558149)
-    (property "Reference" "R32" (at 36.83 62.23 90)
+    (property "Reference" "R33" (at 36.83 62.23 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10K" (at 41.33 60.9695 90)
@@ -5828,7 +5713,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R32") (unit 1)
+          (reference "R33") (unit 1)
         )
       )
     )
@@ -5863,7 +5748,7 @@
   (symbol (lib_id "Connector:Conn_01x03_Pin") (at 189.23 162.56 270) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6c45fc30-50fa-4c71-9767-e8975bb3f6f7)
-    (property "Reference" "J20" (at 194.31 161.29 90)
+    (property "Reference" "J19" (at 194.31 161.29 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x03_Pin" (at 189.23 163.83 90)
@@ -5881,7 +5766,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "J20") (unit 1)
+          (reference "J19") (unit 1)
         )
       )
     )
@@ -6049,6 +5934,33 @@
     )
   )
 
+  (symbol (lib_id "Device:R_Potentiometer_Trim") (at 45.72 76.2 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 7866aecb-5284-4b25-b215-b3d7680f7631)
+    (property "Reference" "RV6" (at 48.1066 74.2712 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "100K" (at 45.72 73.66 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Potentiometer_THT:Potentiometer_Piher_PT-10-V10_Vertical" (at 45.72 76.2 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 45.72 76.2 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid ee2476ac-b986-406c-91e6-000c9aa1551e))
+    (pin "2" (uuid 54070f00-4ff2-4cf4-84ec-fb0afe3cadea))
+    (pin "3" (uuid db364aec-291a-46b8-a0cf-2b4028ddaee5))
+    (instances
+      (project "VMFB"
+        (path "/840789ee-60d4-4003-8113-c1b030a45492"
+          (reference "RV6") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "Transistor_BJT:TIP41C") (at 162.56 120.65 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 79b04202-c963-491c-9ed8-ec912c17a1a6)
@@ -6200,6 +6112,33 @@
     )
   )
 
+  (symbol (lib_id "Device:R_Potentiometer_Trim") (at 208.28 66.04 90) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 7eaf6b99-4b44-4e8b-8f79-356429450306)
+    (property "Reference" "RV3" (at 206.3512 63.6534 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "100K" (at 205.74 66.04 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Potentiometer_THT:Potentiometer_Piher_PT-10-V10_Vertical" (at 208.28 66.04 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 208.28 66.04 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid df3a5769-edf4-42fc-9640-31493632afec))
+    (pin "2" (uuid 2c159ea5-8d19-4bb5-9ee0-985f6478a652))
+    (pin "3" (uuid a8f56897-f8ed-4e85-874e-009416e0fa48))
+    (instances
+      (project "VMFB"
+        (path "/840789ee-60d4-4003-8113-c1b030a45492"
+          (reference "RV3") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "Transistor_BJT:BC547") (at 240.03 54.61 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7f95cc21-fd06-4553-9ae0-c77e4fc95227)
@@ -6227,37 +6166,10 @@
     )
   )
 
-  (symbol (lib_id "Device:R_Potentiometer") (at 45.72 76.2 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 80ba9ef9-014f-4bf9-8fed-d638c0dadd8d)
-    (property "Reference" "RV6" (at 48.26 76.2 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "100K" (at 45.72 76.2 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Potentiometer_THT:Potentiometer_Piher_PT-10-V10_Vertical" (at 45.72 76.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 45.72 76.2 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 938dfdb5-cdcb-427a-b963-128a08fa70fc))
-    (pin "2" (uuid dcadd94c-3a33-4669-95df-23ce43eb3337))
-    (pin "3" (uuid 07ceb934-2ca9-4abc-a32b-a7dc20629ac4))
-    (instances
-      (project "VMFB"
-        (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "RV6") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "Connector:Conn_01x02_Pin") (at 180.34 152.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 81049e69-9e2c-4efd-bc06-62f4d6063ffe)
-    (property "Reference" "J19" (at 180.34 148.59 0)
+    (property "Reference" "J20" (at 180.34 148.59 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x02_Pin" (at 178.9329 154.0738 90)
@@ -6274,7 +6186,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "J19") (unit 1)
+          (reference "J20") (unit 1)
         )
       )
     )
@@ -6283,7 +6195,7 @@
   (symbol (lib_id "Connector:Conn_01x03_Pin") (at 22.86 78.74 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 87d8d64f-4c96-4be6-a78e-c9d1c20c0559)
-    (property "Reference" "J13" (at 22.86 74.93 0)
+    (property "Reference" "J14" (at 22.86 74.93 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x03_Pin" (at 29.21 83.82 0)
@@ -6301,7 +6213,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "J13") (unit 1)
+          (reference "J14") (unit 1)
         )
       )
     )
@@ -6415,7 +6327,7 @@
   (symbol (lib_id "Connector:Conn_01x06_Pin") (at 102.87 152.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 955b9d55-b741-45a7-aced-051eee726f32)
-    (property "Reference" "J14" (at 100.33 153.67 90)
+    (property "Reference" "J12" (at 100.33 153.67 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x06_Pin" (at 97.79 153.67 90)
@@ -6436,7 +6348,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "J14") (unit 1)
+          (reference "J12") (unit 1)
         )
       )
     )
@@ -6628,7 +6540,7 @@
   (symbol (lib_id "Connector:Conn_01x03_Pin") (at 196.85 114.3 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9d6eba74-8282-4602-895b-0f90bb2e50dc)
-    (property "Reference" "J12" (at 197.485 107.95 0)
+    (property "Reference" "J13" (at 197.485 107.95 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Conn_01x03_Pin" (at 194.31 114.3 90)
@@ -6646,7 +6558,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "J12") (unit 1)
+          (reference "J13") (unit 1)
         )
       )
     )
@@ -6850,7 +6762,7 @@
   (symbol (lib_id "Device:R") (at 80.01 38.1 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b070e7f1-3534-44a2-9321-e907b49a88b2)
-    (property "Reference" "R33" (at 80.01 35.56 90)
+    (property "Reference" "R34" (at 80.01 35.56 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1K" (at 80.01 38.1 90)
@@ -6867,7 +6779,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R33") (unit 1)
+          (reference "R34") (unit 1)
         )
       )
     )
@@ -6894,6 +6806,33 @@
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
           (reference "C12") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:R_Potentiometer_Trim") (at 208.28 48.26 270) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid b22d7937-cefc-4a65-9127-b5fd08e7f35a)
+    (property "Reference" "RV4" (at 210.2088 50.6466 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "100K" (at 210.82 48.26 90)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Potentiometer_THT:Potentiometer_Piher_PT-10-V10_Vertical" (at 208.28 48.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 208.28 48.26 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid a6acc4ce-dbec-4feb-9c5c-8527847b2053))
+    (pin "2" (uuid 4459c47c-ec6b-4bd2-8b3f-884f285b7fad))
+    (pin "3" (uuid f64d3443-873f-4baf-9c5c-4e2b48fa7b67))
+    (instances
+      (project "VMFB"
+        (path "/840789ee-60d4-4003-8113-c1b030a45492"
+          (reference "RV4") (unit 1)
         )
       )
     )
@@ -7495,7 +7434,7 @@
   (symbol (lib_id "Device:R") (at 81.28 193.04 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid dbae211b-420b-4af6-9e96-b0932e7ff74f)
-    (property "Reference" "R34" (at 79.5722 195.3635 90)
+    (property "Reference" "R35" (at 79.5722 195.3635 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "470R" (at 78.9085 193.0626 90)
@@ -7512,7 +7451,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R34") (unit 1)
+          (reference "R35") (unit 1)
         )
       )
     )
@@ -7983,7 +7922,7 @@
   (symbol (lib_id "Device:R") (at 87.63 100.33 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f6836696-c412-495e-b5cd-6ef3b2b7d2d1)
-    (property "Reference" "R11" (at 90.17 99.06 90)
+    (property "Reference" "R12" (at 90.17 99.06 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10K" (at 87.7401 98.3332 90)
@@ -8000,7 +7939,7 @@
     (instances
       (project "VMFB"
         (path "/840789ee-60d4-4003-8113-c1b030a45492"
-          (reference "R11") (unit 1)
+          (reference "R12") (unit 1)
         )
       )
     )
