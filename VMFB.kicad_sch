@@ -5477,7 +5477,7 @@
     (property "Reference" "R48" (at 201.2088 139.9786 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "1K" (at 203.2 139.7 90)
+    (property "Value" "100R" (at 203.2 139.7 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" (at 204.978 138.43 90)
