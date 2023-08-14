@@ -4862,13 +4862,17 @@
     )
   )
 
-  (symbol (lib_id "Device:R") (at 67.31 102.87 0) (mirror x) (unit 1)
+  (symbol (lib_id "Device:R") (at 67.31 102.87 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 27ca3ece-b874-4fca-ab5e-78c7c9ec792a)
+<<<<<<< HEAD
     (property "Reference" "R13" (at 65.0224 104.7595 90)
+=======
+    (property "Reference" "R11" (at 65.0224 100.9805 90)
+>>>>>>> 1d313c56bb41b2e5cb9f2005ea111f108dc8ee40
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "4.7K" (at 67.279 105.0692 90)
+    (property "Value" "4.7K" (at 67.279 100.6708 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" (at 65.532 102.87 90)
@@ -7303,7 +7307,7 @@
     (property "Value" "22R" (at 162.7003 110.099 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical" (at 160.782 111.76 90)
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P5.08mm_Vertical" (at 160.782 111.76 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 162.56 111.76 0)
@@ -7669,7 +7673,7 @@
     (property "Reference" "Q8" (at 219.71 154.305 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "BC547" (at 219.71 156.845 0)
+    (property "Value" "BC547B" (at 219.71 156.845 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Package_TO_SOT_THT:TO-92_Inline_Wide" (at 219.71 156.845 0)
