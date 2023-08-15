@@ -79,6 +79,11 @@ This project uses commodity components, and you can confidently use alternatives
 
 When timed dispense is triggered, it sends a signal to turn on the sensor IR LEDs and triggers the motor controller to start the vibration dispenser. When something is dispensed, the motor stops.
 
+# FAILURE MODES
+- Deposit sensor jammed: Sensor will not trigger a dispense event until it is unjammed. The sensor uses an inline capacitor to limit the signal to a pulse each time it is triggered.
+- Dispense sensor jammed: Vending machine will not dispense until the sensor is unjammed.
+- Peanut hopper jammed or empty: Dispense motor will stop after ~10 seconds.
+
 # MONITORING
 
 I was using a Rasperry Pi Zero W with a wide-angle camera module with my vending machine, but I wanted something that drew less power (and was cheaper and more available). I found that the ESP32-CAM module  consumes about 135 MA when streaming video, can be put to sleep (consuming just a few mA) and has 4 GPIO pins available when using the SD-card slot - it can stream/record video and log events from the vending machine, making it all available over wifi or bluetooth.
