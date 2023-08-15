@@ -8048,7 +8048,7 @@
     (property "Reference" "R24" (at 36.3102 78.6713 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "470R" (at 35.56 76.2 90)
+    (property "Value" "1K" (at 36.83 76.2 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" (at 38.1 77.978 90)
