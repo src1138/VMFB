@@ -44,6 +44,8 @@ Back
 
 The PCB has footprints for USB type A, USB type B, barrel jack and screw terminal power input. You only need to populate the ones you will use.
 
+In Rev.B Ver.1.0 you need to add a 10K resistor on the EMPTY sensor from the SIGNAL header pin to ground.
+
 The Timer and Powerbank Keep-Alive are not essential and you don't have to populate the parts for them if you don't need/want to use them.
 
 # CRITICAL COMPONENTS
