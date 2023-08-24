@@ -37,10 +37,10 @@ Kicad Files (Github): https://github.com/src1138/VMFB
 Gerbers and PCB (PCBWay): https://www.pcbway.com/project/shareproject/Vending_Machine_for_Birds_eda585b3.html
 
 Front
-![image](https://github.com/src1138/VMFB/assets/15698079/49461066-83e9-48a8-94f1-31aabdd8c2f1)
+![image](https://github.com/src1138/VMFB/assets/15698079/b2c44d8d-ea76-4e26-b253-f64fb3e87d95)
 
 Back
-![image](https://github.com/src1138/VMFB/assets/15698079/f7248c04-e888-49ab-9023-a9d7b994f880)
+![image](https://github.com/src1138/VMFB/assets/15698079/150e5be0-fbf2-4bff-9815-8286b81c62f6)
 
 The PCB has footprints for USB type A, USB type B, barrel jack and screw terminal power input. You only need to populate the ones you will use.
 
