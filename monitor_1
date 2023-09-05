@@ -1,0 +1,51 @@
+#!/bin/bash
+
+SIR=17
+PIR=27
+TMR=22
+EMT=23
+ 
+test -e /sys/class/gpio/gpio$SIR || 
+  (echo $SIR > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$SIR/direction)
+test -e /sys/class/gpio/gpio$PIR ||
+  (echo $PIR > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$PIR/direction)
+test -e /sys/class/gpio/gpio$TMR || 
+  (echo $TMR > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$TMR/direction)
+test -e /sys/class/gpio/gpio$EMT ||
+  (echo $EMT > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$EMT/direction)
+  
+valSIR=$(cat /sys/class/gpio/gpio$SIR/value)
+valPIR=$(cat /sys/class/gpio/gpio$PIR/value)
+valTMR=$(cat /sys/class/gpio/gpio$TMR/value)
+valEMT=$(cat /sys/class/gpio/gpio$EMT/value)
+ 
+if [ "$valSIR" == "1" ]; then
+    SIR_text="OFF"
+else
+    SIR_text="ON"
+fi
+
+if [ "$valPIR" == "1" ]; then
+    PIR_text="IDLE"
+else
+    PIR_text="TRIG"
+fi
+
+if [ "$valTMR" == "1" ]; then
+    TMR_text="ON"
+else
+    TMR_text="OFF"
+fi
+
+if [ "$valEMT" == "0" ]; then
+    EMT_text="|FEED LOW"
+else
+    EMT_text=""
+fi
+
+echo "PIR:$PIR_text|IR:$SIR_text|TMR:$TMR_text$EMT_text"
+echo 1 1>&2
