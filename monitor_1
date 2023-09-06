@@ -17,11 +17,29 @@ test -e /sys/class/gpio/gpio$TMR ||
 test -e /sys/class/gpio/gpio$EMT ||
   (echo $EMT > /sys/class/gpio/export \
    && echo in > /sys/class/gpio/gpio$EMT/direction)
+
+
+prev_valSIR=$(cat /data/log/prev_valSIR)
+prev_valPIR=$(cat /data/log/prev_valPIR)
+prev_valTMR=$(cat /data/log/prev_valTMR)
+prev_valEMT=$(cat /data/log/prev_valEMT)
   
 valSIR=$(cat /sys/class/gpio/gpio$SIR/value)
 valPIR=$(cat /sys/class/gpio/gpio$PIR/value)
 valTMR=$(cat /sys/class/gpio/gpio$TMR/value)
-valEMT=$(cat /sys/class/gpio/gpio$EMT/value)
+if [ "$valSIR" == "0" ]; then
+    valEMT=$(cat /sys/class/gpio/gpio$EMT/value)
+else
+    valEMT=$prev_valEMT
+fi
+
+echo $valSIR >| /data/log/prev_valSIR
+echo $valPIR >| /data/log/prev_valPIR
+echo $valTMR >| /data/log/prev_valTMR
+if [ "$valSIR" == "0" ]; then
+    echo $valEMT >| /data/log/prev_valEMT
+fi
+
  
 if [ "$valSIR" == "1" ]; then
     SIR_text="OFF"
@@ -42,10 +60,33 @@ else
 fi
 
 if [ "$valEMT" == "0" ]; then
-    EMT_text="|FEED LOW"
+    EMT_text="LOW"
 else
-    EMT_text=""
+    EMT_text="OK"
 fi
 
-echo "PIR:$PIR_text|IR:$SIR_text|TMR:$TMR_text$EMT_text"
-echo 1 1>&2
+touch /data/log/VMFB.log
+
+dtStamp=$(date +%F_%X)
+
+if [ "$valSIR" != "$prev_valSIR" ]; then
+    echo "$dtStamp	IR	$valSIR	$SIR_text">> /data/log/VMFB.log
+fi
+
+if [ "$valPIR" != "$prev_valPIR" ]; then
+    echo "$dtStamp	PIR	$valPIR	$PIR_text">> /data/log/VMFB.log
+fi
+
+if [ "$valTMR" != "$prev_valTMR" ]; then
+    echo "$dtStamp	TMR	$valTMR	$TMR_text">> /data/log/VMFB.log
+fi
+
+if [ "$valEMT" != "$prev_valEMT" ]; then
+    if [ "$valSIR" == "0" ]; then
+        echo "$dtStamp	EMT	$valEMT	$EMT_text">> /data/log/VMFB.log
+    fi
+fi
+
+
+echo "PIR:$PIR_text|IR:$SIR_text|TMR:$TMR_text|FEED:$EMT_text"
+echo 0 1>&2
