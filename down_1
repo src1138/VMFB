@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Assign pins
+DISCON=7
+ 
+# Verify they are set up, else initialize them
+test -e /sys/class/gpio/gpio$DISCON ||
+  (echo $DISCON > /sys/class/gpio/export \
+   && echo out > /sys/class/gpio/gpio$DISCON/direction)
+
+# Set the pin to high, wait 100ms, then set it back to low
+echo "1">/sys/class/gpio/gpio$DISCON/value
+sleep 0.1
+echo "0">/sys/class/gpio/gpio$DISCON/value

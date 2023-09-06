@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Assign pins
+PIRCON=8
+ 
+# Verify they are set up, else initialize them
+test -e /sys/class/gpio/gpio$PIRCON ||
+  (echo $PIRCON > /sys/class/gpio/export \
+   && echo out > /sys/class/gpio/gpio$PIRCON/direction)
+
+# Set the pin to high, wait 100ms, then set it back to low
+echo "1">/sys/class/gpio/gpio$PIRCON/value
+sleep 0.1
+echo "0">/sys/class/gpio/gpio$PIRCON/value
+
