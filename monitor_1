@@ -126,12 +126,12 @@ touch /data/log/VMFB.log
 
 dtStamp=$(date +%F_%X)
 
-if [ "$valSIR" != "$prev_valSIR" ]; then
-    echo "$dtStamp	IR	$valSIR	$SIR_text">> /data/log/VMFB.log
-fi
-
 if [ "$valPIR" != "$prev_valPIR" ]; then
     echo "$dtStamp	PIR	$valPIR	$PIR_text">> /data/log/VMFB.log
+fi
+
+if [ "$valSIR" != "$prev_valSIR" ]; then
+    echo "$dtStamp	IR	$valSIR	$SIR_text">> /data/log/VMFB.log
 fi
 
 if [ "$valTMR" != "$prev_valTMR" ]; then
@@ -146,14 +146,14 @@ fi
 
 # Deposit and Dispense events are too short to catch
 if [ "$valDIS" != "$prev_valDIS" ]; then
-    echo "$dtStamp	PIR	$valDIS	$DIS_text">> /data/log/VMFB.log
+    echo "$dtStamp	DIS	$valDIS	$DIS_text">> /data/log/VMFB.log
 fi
 
 if [ "$valDEP" != "$prev_valDEP" ]; then
-    echo "$dtStamp	PIR	$valDEP	$DEP_text">> /data/log/VMFB.log
+    echo "$dtStamp	DEP	$valDEP	$DEP_text">> /data/log/VMFB.log
 fi
 
 # Output to the UI
 echo "PIR:$PIR_text|IR:$SIR_text|TMR:$TMR_text|FEED:$EMT_text"
-# 1 second delay between executions
-echo 1 1>&2
+# 0 second delay between executions
+echo 0 1>&2
