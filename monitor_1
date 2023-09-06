@@ -1,10 +1,32 @@
 #!/bin/bash
 
-SIR=17
+# Set up output pins since they default to 1 on boot
+# Since this runs once per second it shouldn't interfere with manual events
+# Assign Sensor and Dispense control pins
+SIRCON=12
+DISCON=16 
+# Verify they are set up, else initialize them
+test -e /sys/class/gpio/gpio$SIRCON ||
+  (echo $SIRCON > /sys/class/gpio/export \
+   && echo out > /sys/class/gpio/gpio$SIRCON/direction)
+test -e /sys/class/gpio/gpio$DISCON ||
+  (echo $DISCON > /sys/class/gpio/export \
+   && echo out > /sys/class/gpio/gpio$DISCON/direction)
+# Set the pins to low so thay are not stuck high on boot
+echo "0" > /sys/class/gpio/gpio$SIRCON/value
+echo "0" > /sys/class/gpio/gpio$DISCON/value
+
+# Set up input pins and check their values
+# Assign pins
 PIR=27
+SIR=17
+# Deposit and Dispense events are too short to catch
+DIS=20
+DEP=21
 TMR=22
 EMT=23
  
+# Verify they are set up, else initialize them
 test -e /sys/class/gpio/gpio$SIR || 
   (echo $SIR > /sys/class/gpio/export \
    && echo in > /sys/class/gpio/gpio$SIR/direction)
@@ -18,29 +40,50 @@ test -e /sys/class/gpio/gpio$EMT ||
   (echo $EMT > /sys/class/gpio/export \
    && echo in > /sys/class/gpio/gpio$EMT/direction)
 
+# Deposit and Dispense events are too short to catch
+test -e /sys/class/gpio/gpio$DIS ||
+  (echo $DIS > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$DIS/direction)
+test -e /sys/class/gpio/gpio$DEP ||
+  (echo $DEP > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$DEP/direction)
 
+# Get the values for the last script execution
 prev_valSIR=$(cat /data/log/prev_valSIR)
 prev_valPIR=$(cat /data/log/prev_valPIR)
 prev_valTMR=$(cat /data/log/prev_valTMR)
 prev_valEMT=$(cat /data/log/prev_valEMT)
-  
+# Deposit and Dispense events are too short to catch
+prev_valDIS=$(cat /data/log/prev_valDIS)
+prev_valDEP=$(cat /data/log/prev_valDEP)
+
+# Get the current pin values
 valSIR=$(cat /sys/class/gpio/gpio$SIR/value)
 valPIR=$(cat /sys/class/gpio/gpio$PIR/value)
 valTMR=$(cat /sys/class/gpio/gpio$TMR/value)
+# Only get the EMT pin value if the sensors are on, else reuse the previous value
 if [ "$valSIR" == "0" ]; then
     valEMT=$(cat /sys/class/gpio/gpio$EMT/value)
 else
     valEMT=$prev_valEMT
 fi
+# Deposit and Dispense events are too short to catch
+valDIS=$(cat /sys/class/gpio/gpio$DIS/value)
+valDEP=$(cat /sys/class/gpio/gpio$DEP/value)
 
+# Update the previous values to the current values
 echo $valSIR >| /data/log/prev_valSIR
 echo $valPIR >| /data/log/prev_valPIR
 echo $valTMR >| /data/log/prev_valTMR
+# Only update the EMT previous value if the sensors are on
 if [ "$valSIR" == "0" ]; then
     echo $valEMT >| /data/log/prev_valEMT
 fi
+# Deposit and Dispense events are too short to catch
+echo $valDIS >| /data/log/prev_valDIS
+echo $valDEP >| /data/log/prev_valDEP
 
- 
+# Set the display text for the pin values 
 if [ "$valSIR" == "1" ]; then
     SIR_text="OFF"
 else
@@ -65,6 +108,20 @@ else
     EMT_text="OK"
 fi
 
+# Deposit and Dispense events are too short to catch
+if [ "$valDIS" == "0" ]; then
+    DIS_text="TRIG"
+else
+    DIS_text="IDLE"
+fi
+
+if [ "$valDEP" == "0" ]; then
+    DEP_text="TRIG"
+else
+    DEP_text="IDLE"
+fi
+
+# Log any values that changed since the last execution
 touch /data/log/VMFB.log
 
 dtStamp=$(date +%F_%X)
@@ -87,6 +144,16 @@ if [ "$valEMT" != "$prev_valEMT" ]; then
     fi
 fi
 
+# Deposit and Dispense events are too short to catch
+if [ "$valDIS" != "$prev_valDIS" ]; then
+    echo "$dtStamp	PIR	$valDIS	$DIS_text">> /data/log/VMFB.log
+fi
 
+if [ "$valDEP" != "$prev_valDEP" ]; then
+    echo "$dtStamp	PIR	$valDEP	$DEP_text">> /data/log/VMFB.log
+fi
+
+# Output to the UI
 echo "PIR:$PIR_text|IR:$SIR_text|TMR:$TMR_text|FEED:$EMT_text"
-echo 0 1>&2
+# 1 second delay between executions
+echo 1 1>&2
