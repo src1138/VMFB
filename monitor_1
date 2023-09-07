@@ -1,28 +1,12 @@
 #!/bin/bash
 
-# Set up output pins since they default to 1 on boot
-# Since this runs once per second it shouldn't interfere with manual events
-# Assign Sensor and Dispense control pins
-SIRCON=12
-DISCON=16 
-# Verify they are set up, else initialize them
-test -e /sys/class/gpio/gpio$SIRCON ||
-  (echo $SIRCON > /sys/class/gpio/export \
-   && echo out > /sys/class/gpio/gpio$SIRCON/direction)
-test -e /sys/class/gpio/gpio$DISCON ||
-  (echo $DISCON > /sys/class/gpio/export \
-   && echo out > /sys/class/gpio/gpio$DISCON/direction)
-# Set the pins to low so thay are not stuck high on boot
-echo "0" > /sys/class/gpio/gpio$SIRCON/value
-echo "0" > /sys/class/gpio/gpio$DISCON/value
-
 # Set up input pins and check their values
 # Assign pins
 PIR=27
 SIR=17
 # Deposit and Dispense events are too short to catch
 DIS=20
-DEP=21
+DEP=26
 TMR=22
 EMT=23
  
