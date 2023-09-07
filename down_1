@@ -2,6 +2,10 @@
 
 # Assign pins
 DISCON=13
+
+# Set pins 12 and 13 to be outputs driving low to avoid them going high on start up.
+# Add the following line to your /boot/config.txt
+# gpio=12,13=op,dl
  
 # Verify they are set up, else initialize them
 test -e /sys/class/gpio/gpio$DISCON ||
