@@ -69,40 +69,40 @@ echo $valDEP >| /data/log/prev_valDEP
 
 # Set the display text for the pin values 
 if [ "$valSIR" == "1" ]; then
-    SIR_text="OFF"
+    SIR_text="◯"
 else
-    SIR_text="ON"
+    SIR_text="⬤"
 fi
 
 if [ "$valPIR" == "1" ]; then
-    PIR_text="IDLE"
+    PIR_text="◯"
 else
-    PIR_text="TRIG"
+    PIR_text="⬤"
 fi
 
 if [ "$valTMR" == "1" ]; then
-    TMR_text="ON"
+    TMR_text="⬤"
 else
-    TMR_text="OFF"
+    TMR_text="◯"
 fi
 
 if [ "$valEMT" == "0" ]; then
-    EMT_text="LOW"
+    EMT_text="⚠"
 else
-    EMT_text="OK"
+    EMT_text="✓"
 fi
 
 # Deposit and Dispense events are too short to catch
 if [ "$valDIS" == "0" ]; then
-    DIS_text="TRIG"
+    DIS_text="⚠"
 else
-    DIS_text="IDLE"
+    DIS_text="✓"
 fi
 
 if [ "$valDEP" == "0" ]; then
-    DEP_text="TRIG"
+    DEP_text="⚠"
 else
-    DEP_text="IDLE"
+    DEP_text="✓"
 fi
 
 # Log any values that changed since the last execution
@@ -138,6 +138,6 @@ if [ "$valDEP" != "$prev_valDEP" ]; then
 fi
 
 # Output to the UI
-echo "PIR:$PIR_text|IR:$SIR_text|TMR:$TMR_text|FEED:$EMT_text"
+echo "PIR$PIR_text|IR$SIR_text|TMR$TMR_text|FEED$EMT_text|DEP$DEP_text|DIS$DIS_text"
 # 0 second delay between executions
 echo 0 1>&2
