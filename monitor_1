@@ -139,5 +139,5 @@ fi
 
 # Output to the UI
 echo "PIR$PIR_text|IR$SIR_text|TMR$TMR_text|FEED$EMT_text|DEP$DEP_text|DIS$DIS_text"
-# 0 second delay between executions
-echo 0 1>&2
+# 1 second delay between executions
+echo 1 1>&2
