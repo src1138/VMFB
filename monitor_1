@@ -1,6 +1,129 @@
 #!/bin/bash
 
-cat /data/log/VMFB_monitor_text
+# Set up input pins and check their values
+# Assign pins
+PIR=27
+SIR=17
+TMR=22
+EMT=23
+DEP=26
+DIS=20
+ 
+# Verify they are set up, else initialize them
+test -e /sys/class/gpio/gpio$PIR ||
+  (echo $PIR > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$PIR/direction)
+test -e /sys/class/gpio/gpio$SIR || 
+  (echo $SIR > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$SIR/direction)
+test -e /sys/class/gpio/gpio$DEP ||
+  (echo $DEP > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$DEP/direction)
+test -e /sys/class/gpio/gpio$DIS ||
+  (echo $DIS > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$DIS/direction)
+test -e /sys/class/gpio/gpio$TMR || 
+  (echo $TMR > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$TMR/direction)
+test -e /sys/class/gpio/gpio$EMT ||
+  (echo $EMT > /sys/class/gpio/export \
+   && echo in > /sys/class/gpio/gpio$EMT/direction)
 
+# Get the values for the last script execution
+prev_valPIR=$(cat /data/log/prev_valPIR)
+prev_valSIR=$(cat /data/log/prev_valSIR)
+prev_valTMR=$(cat /data/log/prev_valTMR)
+prev_valEMT=$(cat /data/log/prev_valEMT)
+
+# Get the current pin values
+valPIR=$(cat /sys/class/gpio/gpio$PIR/value)
+valSIR=$(cat /sys/class/gpio/gpio$SIR/value)
+valTMR=$(cat /sys/class/gpio/gpio$TMR/value)
+# Only get the EMT pin value if the sensors are on, else reuse the previous value
+if [ "$valSIR" == "0" ]; then
+    valEMT=$(cat /sys/class/gpio/gpio$EMT/value)
+else
+    valEMT=$prev_valEMT
+fi
+valDEP=$(cat /sys/class/gpio/gpio$DEP/value)
+valDIS=$(cat /sys/class/gpio/gpio$DIS/value)
+
+# Update the previous values to the current values
+echo $valPIR >| /data/log/prev_valPIR
+echo $valSIR >| /data/log/prev_valSIR
+echo $valTMR >| /data/log/prev_valTMR
+# Only update the EMT previous value if the sensors are on
+if [ "$valSIR" == "0" ]; then
+    echo $valEMT >| /data/log/prev_valEMT
+fi
+
+# Set the display text for the pin values 
+
+if [ "$valPIR" == "1" ]; then
+    PIR_text="-"
+else
+    PIR_text="+"
+fi
+
+if [ "$valSIR" == "1" ]; then
+    SIR_text="-"
+else
+    SIR_text="+"
+fi
+
+if [ "$valTMR" == "1" ]; then
+    TMR_text="+"
+else
+    TMR_text="-"
+fi
+
+if [ "$valEMT" == "0" ]; then
+    EMT_text="-"
+else
+    EMT_text="+"
+fi
+
+# Deposit and Dispense events are too short to catch
+if [ "$valDIS" == "0" ]; then
+    DIS_text="+"
+else
+    DIS_text="-"
+fi
+
+if [ "$valDEP" == "0" ]; then
+    DEP_text="+"
+else
+    DEP_text="-"
+fi
+
+# Log any values that changed since the last execution
+dtStamp=$(date +%F_%X)
+VMFB_logfile="/data/log/VMFB_$(date +%F).log"
+touch "$VMFB_logfile"
+
+if [ "$valPIR" != "$prev_valPIR" ]; then
+    echo "$dtStamp	PIR	$valPIR	$PIR_text">> "$VMFB_logfile"
+fi
+
+if [ "$valSIR" != "$prev_valSIR" ]; then
+    echo "$dtStamp	IR	$valSIR	$SIR_text">> "$VMFB_logfile"
+fi
+
+if [ "$valTMR" != "$prev_valTMR" ]; then
+    echo "$dtStamp	TMR	$valTMR	$TMR_text">> "$VMFB_logfile"
+fi
+
+if [ "$valEMT" != "$prev_valEMT" ]; then
+    if [ "$valSIR" == "0" ]; then
+        echo "$dtStamp	EMT	$valEMT	$EMT_text">> /data/log/VMFB.log
+    fi
+fi
+
+PIRcount=$(grep PIR $VMFB_logfile | grep -c "+")
+DEPcount=$(grep DEP $VMFB_logfile | grep -c "+")
+DIScount=$(grep DIS $VMFB_logfile | grep -c "+")
+
+# Output to the UI
+echo "PIR$PIR_text$PIRcount|IR$SIR_text|TMR$TMR_text|FEED$EMT_text|DEP$DEP_text$DEPcount|DIS$DIS_text$DIScount"
 # 1 second delay between executions
 echo 1 1>&2
