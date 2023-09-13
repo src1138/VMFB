@@ -64,11 +64,19 @@ if [ "$valPIR" == "1" ]; then
 else
     PIR_text="+"
 fi
-
+ 
 if [ "$valSIR" == "1" ]; then
     SIR_text="-"
+    if [ "$valSIR" != "$prev_valSIR" ]; then
+        curl  http://localhost:7999/1/detection/pause
+        curl http://localhost:7999/1/action/eventend
+    fi
 else
     SIR_text="+"
+    if [ "$valSIR" != "$prev_valSIR" ]; then
+        curl  http://localhost:7999/1/detection/start
+        curl http://localhost:7999/1/action/eventstart
+    fi
 fi
 
 if [ "$valTMR" == "1" ]; then
@@ -115,7 +123,7 @@ fi
 
 if [ "$valEMT" != "$prev_valEMT" ]; then
     if [ "$valSIR" == "0" ]; then
-        echo "$dtStamp	EMT	$valEMT	$EMT_text">> /data/log/VMFB.log
+        echo "$dtStamp	EMT	$valEMT	$EMT_text">> "$VMFB_logfile"
     fi
 fi
 
