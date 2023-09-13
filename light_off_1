@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # swap the camera config file and restart motion and the motioneye server
-cp camera-1.conf.enable_camera camera-1.conf
-cp motion.conf.enable_camera motion.conf
+cp camera-1.conf.disable_camera camera-1.conf
+cp motion.conf.disable_camera motion.conf
 curl  http://localhost:7999/1/action/restart
 meyectl stopserver -b -c motioneye.conf
 meyectl startserver -b -c motioneye.conf
-
