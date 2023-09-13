@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Assign pins
+SIRCON=12
 DISCON=13
 
 # Set pins 12 and 13 to be outputs driving low to avoid them going high on start up.
@@ -8,11 +9,17 @@ DISCON=13
 # gpio=12,13=op,dl
  
 # Verify they are set up, else initialize them
+test -e /sys/class/gpio/gpio$SIRCON ||
+  (echo $SIRCON > /sys/class/gpio/export \
+   && echo out > /sys/class/gpio/gpio$SIRCON/direction)
 test -e /sys/class/gpio/gpio$DISCON ||
   (echo $DISCON > /sys/class/gpio/export \
    && echo out > /sys/class/gpio/gpio$DISCON/direction)
 
-# Set the pin to high, wait 100ms, then set it back to low
+# Set the pin to high, wait 1s, then set it back to low
+echo "1">/sys/class/gpio/gpio$SIRCON/value
 echo "1">/sys/class/gpio/gpio$DISCON/value
-sleep 0.1
+sleep 1
+echo "0">/sys/class/gpio/gpio$SIRCON/value
 echo "0">/sys/class/gpio/gpio$DISCON/value
+

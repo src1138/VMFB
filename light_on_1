@@ -12,8 +12,8 @@ test -e /sys/class/gpio/gpio$SIRCON ||
   (echo $SIRCON > /sys/class/gpio/export \
    && echo out > /sys/class/gpio/gpio$SIRCON/direction)
 
-# Set the pin to high, wait 100ms, then set it back to low
+# Set the pin to high, wait 1s, then set it back to low
 echo "1">/sys/class/gpio/gpio$SIRCON/value
-sleep 0.1
+sleep 1
 echo "0">/sys/class/gpio/gpio$SIRCON/value
 

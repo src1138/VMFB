@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# start recording
+curl  http://localhost:7999/1/detection/start
+curl http://localhost:7999/1/action/eventstart
+
