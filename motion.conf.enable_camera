@@ -1,0 +1,14 @@
+# @normal_password vmfb
+# @enabled on
+# @admin_username admin
+# @admin_password 91c29b4f1f091c7c5fa4ff4b2cc4143ec3a4a423
+# @normal_username user
+
+
+webcontrol_interface 1
+setup_mode off
+webcontrol_parms 2
+webcontrol_localhost on
+webcontrol_port 7999
+
+camera camera-1.conf
