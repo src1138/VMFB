@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Set the time you want to enable and disable the camera 
+ontime=0600
+offtime=1800
+
+
+# Get the current time's hours and minutes (ex. 1430 for 2:30pm)
+
+# If the current time is greater than ontime and less than offtime
+# then check the status of the camera and enable it if it is disabled
+
+# Else, if the camera is enabled already, disable it
+
+
+sleep 1800
+
+
+
