@@ -4,3 +4,5 @@
 nohup /data/etc/VMFB_logger.py >> /data/log/userinit.log &
 # Start logger for PIR, Sensor IR, Timer and Empty sensors
 nohup /data/etc/VMFB_logger.sh >> /data/log/userinit.log &
+# Start the camera on/off scheduler script
+nohup /data/etc/camera_on-off_schedule.sh >> /data/log/userinit.log &
