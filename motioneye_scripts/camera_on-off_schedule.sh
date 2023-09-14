@@ -15,8 +15,8 @@ nowtime=$(date +%H%M)
 # Get the target on/off state
 targetState="0"
 # Swap $ontime and $offtime to disable early and enable late
-if [$nowtime >= $ontime]; then
-    if [$nowtime <= $offtime]; then
+if [[ "$nowtime" > "$ontime" ]]; then
+    if [[ "$nowtime" < "$offtime" ]]; then
         targetState="1"
     fi
 fi
@@ -41,7 +41,7 @@ if [ "$camStatus" != "0" ]; then
     fi
 fi
 
-# Run every 30 minutes
-sleep 1800
+# Run every 15 minutes
+sleep 900
 
 done
