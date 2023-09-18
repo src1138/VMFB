@@ -36,8 +36,8 @@ if [ "$camStatus" == "0" ]; then
 	echo "$(date +%F_%X)	Enabling camera"
 	cp /data/etc/camera-1.conf.enable_camera /data/etc/camera-1.conf
 	cp /data/etc/motion.conf.enable_camera /data/etc/motion.conf
-	curl  http://localhost:7999/1/action/restart
-	curl  http://localhost:7999/1/detection/pause
+	#curl  http://localhost:7999/1/action/restart
+	#curl  http://localhost:7999/1/detection/pause
 	meyectl stopserver -b -c /data/etc/motioneye.conf
 	meyectl startserver -b -c /data/etc/motioneye.conf
         echo "$(date +%F_%X)	Camera enabled"
@@ -52,7 +52,7 @@ if [ "$camStatus" != "0" ]; then
 	echo "$(date +%F_%X)	Disabling camera"
 	cp /data/etc/camera-1.conf.disable_camera /data/etc/camera-1.conf
 	cp /data/etc/motion.conf.disable_camera /data/etc/motion.conf
-	curl  http://localhost:7999/1/action/restart
+	#curl  http://localhost:7999/1/action/restart
 	meyectl stopserver -b -c /data/etc/motioneye.conf
 	meyectl startserver -b -c data/etc/motioneye.conf
         echo "$(date +%F_%X)	Camera disabled"

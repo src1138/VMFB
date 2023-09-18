@@ -3,6 +3,6 @@
 # swap the camera config file and restart motion and the motioneye server
 cp /data/etc/camera-1.conf.disable_camera /data/etc/camera-1.conf
 cp /data/etc/motion.conf.disable_camera /data/etc/motion.conf
-curl  http://localhost:7999/1/action/restart
 meyectl stopserver -b -c motioneye.conf
 meyectl startserver -b -c motioneye.conf
+
