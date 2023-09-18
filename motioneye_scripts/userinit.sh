@@ -6,3 +6,5 @@ nohup /data/etc/VMFB_logger.py >> /data/log/userinit.log &
 nohup /data/etc/VMFB_logger.sh >> /data/log/userinit.log &
 # Start the camera on/off scheduler script
 nohup /data/etc/camera_on-off_schedule.sh >> /data/log/userinit.log &
+# Pause motion detection on startup
+curl http://localhost:7999/1/detection/pause >> /data/log/userinit.log

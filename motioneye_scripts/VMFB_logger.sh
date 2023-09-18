@@ -61,7 +61,6 @@ fi
 if [ "$valSIR" == "1" ]; then
     SIR_text="-"
     if [ "$valSIR" != "$prev_valSIR" ]; then
-        curl  http://localhost:7999/1/detection/pause
         curl http://localhost:7999/1/action/eventend
     fi
 else
@@ -69,6 +68,7 @@ else
     if [ "$valSIR" != "$prev_valSIR" ]; then
         curl  http://localhost:7999/1/detection/start
         curl http://localhost:7999/1/action/eventstart
+        curl  http://localhost:7999/1/detection/pause
     fi
 fi
 

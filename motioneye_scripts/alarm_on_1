@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# start recording
-curl  http://localhost:7999/1/detection/start
+# start recording -> enable motion detection, start an event, and disable motion detection
+curl http://localhost:7999/1/detection/start
 curl http://localhost:7999/1/action/eventstart
+curl http://localhost:7999/1/detection/pause
 

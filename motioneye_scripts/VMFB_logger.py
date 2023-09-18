@@ -11,8 +11,8 @@ import threading
 GPIO.setmode(GPIO.BOARD)
 
 # Set pin numbers (not the same as the GPIO Pin number)
-DEP = 37 # G26
-DIS = 38 # G20
+DEP = 18 # G24
+DIS = 19 # G10
 
 # Configure input pins
 GPIO.setup([DEP, DIS], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)

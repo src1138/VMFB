@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# start recording
-curl  http://localhost:7999/1/detection/pause
+# stop recording
 curl http://localhost:7999/1/action/eventend
 

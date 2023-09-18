@@ -6,8 +6,8 @@ PIR=27
 SIR=17
 TMR=22
 EMT=23
-DEP=26
-DIS=20
+DEP=24 
+DIS=10 
  
 # Verify they are set up, else initialize them
 test -e /sys/class/gpio/gpio$PIR ||

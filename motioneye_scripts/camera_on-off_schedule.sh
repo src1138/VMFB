@@ -20,24 +20,42 @@ if [[ "$nowtime" > "$ontime" ]]; then
         targetState="1"
     fi
 fi
+echo "$(date +%F_%X)	$nowtime	$ontime	$offtime"
 
 # Get the camera's status
 # "0" means it's not active, anything else means it is active
-camStatus=$(curl  http://localhost:7999/1/detection/connection | grep -c "Connection OK")
+camStatus=$(curl  http://localhost:7999/1/detection/connection 2>&1 | grep -c "Connection OK")
 
 # If the current time is greater than ontime and less than offtime
 # the camera should be enabled, else it should be disabled
 if [ "$camStatus" == "0" ]; then
+    echo "$(date +%F_%X)	Camera is disabled"	
     if [ "$targetState" == "1" ]; then
         #enable the camera
-        /bin/bash /data/etc/light_on_1
+        # swap the camera config file and restart motion and the motioneye server
+	echo "$(date +%F_%X)	Enabling camera"
+	cp /data/etc/camera-1.conf.enable_camera /data/etc/camera-1.conf
+	cp /data/etc/motion.conf.enable_camera /data/etc/motion.conf
+	curl  http://localhost:7999/1/action/restart
+	curl  http://localhost:7999/1/detection/pause
+	meyectl stopserver -b -c /data/etc/motioneye.conf
+	meyectl startserver -b -c /data/etc/motioneye.conf
+        echo "$(date +%F_%X)	Camera enabled"
     fi
 fi
 
 if [ "$camStatus" != "0" ]; then
+    echo "$(date +%F_%X)	Camera is enabled"
     if [ "$targetState" == "0" ]; then
         #disable the camera
-        /bin/bash /data/etc/light_off_1
+	# swap the camera config file and restart motion and the motioneye server
+	echo "$(date +%F_%X)	Disabling camera"
+	cp /data/etc/camera-1.conf.disable_camera /data/etc/camera-1.conf
+	cp /data/etc/motion.conf.disable_camera /data/etc/motion.conf
+	curl  http://localhost:7999/1/action/restart
+	meyectl stopserver -b -c /data/etc/motioneye.conf
+	meyectl startserver -b -c data/etc/motioneye.conf
+        echo "$(date +%F_%X)	Camera disabled"
     fi
 fi
 

@@ -1,0 +1,18 @@
+gpu_mem=128
+gpu_mem_256=128
+gpu_mem_512=128
+dtparam=i2c_arm=on
+dtparam=i2s=on
+dtparam=spi=on
+dtparam=audio=on
+disable_camera_led=1
+arm_freq=950
+gpu_freq=250
+sdram_freq=450
+over_voltage=0
+# Set pins 11 (DIS) and 25 (PIR) to be outputs driving low to avoid them
+# staying high on statup
+gpio=11,25=op,dl
+# Set pins 10, 17, 22, 23, 24, 27 to be inputs with pull-ups
+# gpio=10,17,22,23,24,27=ip,pu
+
