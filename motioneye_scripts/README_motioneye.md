@@ -1,13 +1,13 @@
 GPIO Pins Used
 You can use whatever pins you want, but I chose the following as they all default as inputs at boot.
-Sensor IR Cntrol (SIRCON)=25 
-Dispenser Control (DISCON)=11
-PIR Monitor=27
-Sensor IR Monitor=17
-Timer Monitor=22
-Feed Level Monitor=23
-Deposit Monitor=24 
-Dispense Monitor=10 
+- Sensor IR Control (SIRCON)=25 
+- Dispenser Control (DISCON)=11
+- PIR Monitor=27
+- Sensor IR Monitor=17
+- Timer Monitor=22
+- Feed Level Monitor=23
+- Deposit Monitor=24 
+- Dispense Monitor=10 
 
 /boot/config.txt
 Add the following to make your control outputs drive low
